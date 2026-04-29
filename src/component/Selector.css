@@ -1,0 +1,86 @@
+.container {
+  width: 100%;
+  height: 42px;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px 8px 16px;
+  cursor: pointer;
+}
+
+.checkboxLabel {
+  font-size: 14px;
+  color: rgba(31, 33, 40, 1);
+  font-weight: 400;
+  line-height: 130%;
+}
+
+.checkboxIcon {
+  color: white;
+}
+
+.checkbox {
+  background-color: white;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  width: 23px;
+  height: 23px;
+  border-radius: 6px;
+  border: 1px solid rgba(205, 205, 205, 0.6);
+  display: flex;
+  box-shadow: 0 0 0 0px rgba(59, 130, 246, 0.15);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.container:hover > .checkbox.inactive {
+  border: 1px solid rgba(189, 189, 189, 1);
+}
+
+.container:hover > .checkbox.inactive > .checkboxIcon {
+  color: rgba(227, 227, 227, 1);
+}
+
+.checkbox.active {
+  border-color: transparent; 
+  animation: glowPulseIn 0.3s ease forwards;
+}
+
+.checkbox.exit {
+  animation: glowPulseOut 0.3s ease forwards;
+}
+
+.container:hover > .arm {
+  background-color: rgba(80, 135, 248, 1) !important;
+}
+
+
+@keyframes glowPulseIn {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    background-color: rgba(80, 135, 248, 1);
+    box-shadow: 0 0 0 6px rgba(59, 130, 246, 0);
+  }
+  100% {
+    background-color: rgba(36, 105, 246, 1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
+
+@keyframes glowPulseOut {
+  0% {
+    background-color: rgba(36, 105, 246, 1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    background-color: rgba(80, 135, 248, 1);
+    box-shadow: 0 0 0 6px rgba(59, 130, 246, 0);
+  }
+  100% {
+    background-color: white;
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}

@@ -1,0 +1,8 @@
+:root {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
