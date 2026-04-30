@@ -4,6 +4,7 @@ import Avatar from "./Avatar";
 import { formatDateTime } from "../../../utils/Helper";
 import InputForm from "../../inputForm/InputForm";
 import type { IComment } from "../../../api/post/post.type";
+import { useUserInformation } from "../../../context/userInformationContext";
 
 export default function CommentItem({
   onReply,
@@ -12,6 +13,7 @@ export default function CommentItem({
   onReply: (idComment: string, content: string) => void;
   comment: IComment;
 }) {
+  const { user } = useUserInformation();
   const [showForm, setShowForm] = useState(false);
   const [showChildren, setShowChildren] = useState(true);
   const hasChildren = !!(comment.subComments && comment.subComments.length > 0);
@@ -30,15 +32,17 @@ export default function CommentItem({
           </div>
           <p className={styles.commentContent}>{comment.message}</p>
 
-          <div className={styles.actions}>
-            <button
-              type="button"
-              className={styles.replyButtonSmall}
-              onClick={() => setShowForm((v) => !v)}
-            >
-              {showForm ? "Cancel" : "Reply"}
-            </button>
-          </div>
+          {user && (
+            <div className={styles.actions}>
+              <button
+                type="button"
+                className={styles.replyButtonSmall}
+                onClick={() => setShowForm((v) => !v)}
+              >
+                {showForm ? "Cancel" : "Reply"}
+              </button>
+            </div>
+          )}
 
           {showForm && (
             <InputForm

@@ -19,9 +19,11 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      <div>
-        Welcome, <span className={styles.usernameText}>{username}</span>
-      </div>
+      {user && (
+        <div>
+          Welcome, <span className={styles.usernameText}>{username}</span>
+        </div>
+      )}
       <div className={styles.navbarActions}>
         {username ? (
           <div className={styles.navbarUser}>
