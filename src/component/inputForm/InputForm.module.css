@@ -1,0 +1,66 @@
+.replyForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.replyTextarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 50px;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.replyTextarea:focus {
+  border-color: #3b82f6;
+}
+
+.replyFormActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.cancelButton {
+  background: transparent;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cancelButton:hover {
+  background-color: #f3f4f6;
+}
+
+.submitButton {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 0.35rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.submitButton:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+}

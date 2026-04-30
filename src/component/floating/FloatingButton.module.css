@@ -1,0 +1,32 @@
+.fab {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15),
+              0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.medium {
+  width: 56px;
+  height: 56px;
+}
+
+.medium .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.bottom-right {
+  bottom: 1.5rem;
+  right: 1.5rem;
+}
+
+.icon {
+  display: block;
+}
