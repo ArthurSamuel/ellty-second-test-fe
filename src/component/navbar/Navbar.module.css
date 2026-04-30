@@ -52,3 +52,8 @@
   align-items: center;
   gap: 10px;
 }
+
+.usernameText {
+  font-size: 18px;
+  font-weight: bold;
+}

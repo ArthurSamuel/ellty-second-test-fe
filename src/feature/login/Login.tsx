@@ -34,10 +34,18 @@ export default function Login() {
 
     if (mode === "login") {
       const results = await loginUser({ username, password });
-      Storage.set({ value: JSON.stringify(results.data.data.user) });
+
+      if (results?.error) {
+        setError("Please check your credential");
+        setLoading(false);
+        return;
+      }
+
+      const userData = results.data.user;
+      Storage.set({ value: JSON.stringify(userData) });
       set({
-        id: results.data.data.user.id,
-        username: results.data.data.user.username,
+        id: userData.id,
+        username: userData.username,
       });
       navigate("/");
     } else {
@@ -97,7 +105,7 @@ export default function Login() {
         </form>
         <p className={styles.registerText}>
           <span className={styles.registerLink} onClick={handleUpdateQuery}>
-            Register Instead
+            {mode === "register" ? "Login" : "Register"} Instead
           </span>
         </p>
       </div>

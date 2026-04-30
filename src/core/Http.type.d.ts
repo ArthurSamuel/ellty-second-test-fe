@@ -1,4 +1,5 @@
 export interface HttpBaseResponse<T> {
   data: T;
-  message: string;
+  message?: string;
+  error?: any;
 }

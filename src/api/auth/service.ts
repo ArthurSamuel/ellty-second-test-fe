@@ -8,15 +8,24 @@ export const loginUser = async ({
 }: {
   username: string;
   password: string;
-}) => {
-  const resutls = await Http.post<HttpBaseResponse<IAuth>>({
-    url: "/auth",
-    data: {
-      password,
-      username,
-    },
-  });
-  return resutls;
+}): Promise<HttpBaseResponse<IAuth>> => {
+  try {
+    const resutls = await Http.post<HttpBaseResponse<IAuth>>({
+      url: "/auth",
+      data: {
+        password,
+        username,
+      },
+    });
+    return {
+      data: resutls.data.data,
+    };
+  } catch (error) {
+    return {
+      data: null,
+      error,
+    };
+  }
 };
 
 export const register = async ({
