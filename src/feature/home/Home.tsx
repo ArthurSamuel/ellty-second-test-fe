@@ -30,7 +30,7 @@ export default function Home() {
       {
         id,
         message,
-        username: user.username,
+        username: user!.username,
         createdAt: new Date().toISOString(),
       },
     ]);

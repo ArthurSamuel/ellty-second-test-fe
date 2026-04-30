@@ -41,13 +41,15 @@ export default function Login() {
         return;
       }
 
-      const userData = results.data.user;
-      Storage.set({ value: JSON.stringify(userData) });
-      set({
-        id: userData.id,
-        username: userData.username,
-      });
-      navigate("/");
+      const userData = results?.data?.user;
+      if (userData) {
+        Storage.set({ value: JSON.stringify(userData) });
+        set({
+          id: userData?.id,
+          username: userData?.username,
+        });
+        navigate("/");
+      }
     } else {
       await register({ username, password });
       handleUpdateQuery();

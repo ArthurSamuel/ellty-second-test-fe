@@ -8,7 +8,7 @@ export const loginUser = async ({
 }: {
   username: string;
   password: string;
-}): Promise<HttpBaseResponse<IAuth>> => {
+}): Promise<HttpBaseResponse<IAuth | null>> => {
   try {
     const resutls = await Http.post<HttpBaseResponse<IAuth>>({
       url: "/auth",
